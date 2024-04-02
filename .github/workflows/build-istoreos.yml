@@ -72,8 +72,9 @@ jobs:
         export DEBIAN_FRONTEND=noninteractive
         sudo -E apt-get -qq update
         sudo -E apt-get full-upgrade -qq -y
-        sudo -E apt-get -qq -y  install  dialog apt-utils
+        sudo -E apt-get -qq -y  install  dialog  
         sudo -E apt-get -qq -y install $(cat $GITHUB_WORKSPACE/depends/${{ matrix.os }})
+        sudo -E ln -s /usr/bin/python2.7 /usr/bin/python2
       
         echo "------------------------------- 清理Docker镜像和软件 -------------------------------"
         docker rmi `docker images -q`

@@ -73,8 +73,8 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         echo "------------------------------- 更新并安装依赖 -------------------------------"
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /etc/mysql /etc/php /usr/local/lib/android /opt/ghc
-        export DEBIAN_FRONTEND=noninteractive
+        #sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /etc/mysql /etc/php /usr/local/lib/android /opt/ghc
+        #export DEBIAN_FRONTEND=noninteractive
         sudo -E apt-get -qq update
         #sudo -E apt-get full-upgrade -qq -y
         #sudo -E apt-get -qq -y  install  dialog  

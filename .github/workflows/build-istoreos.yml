@@ -62,6 +62,11 @@ jobs:
         echo -e "磁盘数量: $(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
         echo "------------------------------- 磁盘详情 -------------------------------\n"
         df -Th
+        echo -e "------------------------------- 系统信息 -------------------------------\n"
+        cat /etc/os-release
+        uname -a
+        echo -e "------------------------------- 网络信息 -------------------------------\n"
+        ip addr show    
 
     - name: 初始化编译环境
       env:
@@ -72,7 +77,7 @@ jobs:
         export DEBIAN_FRONTEND=noninteractive
         sudo -E apt-get -qq update
         sudo -E apt-get full-upgrade -qq -y
-        sudo -E apt-get -qq -y  install  dialog  
+        #sudo -E apt-get -qq -y  install  dialog  
         sudo -E apt-get -qq -y install $(cat $GITHUB_WORKSPACE/depends/${{ matrix.os }})
         sudo -E ln -s /usr/bin/python2.7 /usr/bin/python2
       

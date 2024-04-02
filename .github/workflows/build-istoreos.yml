@@ -71,12 +71,10 @@ jobs:
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /etc/mysql /etc/php /usr/local/lib/android /opt/ghc
         export DEBIAN_FRONTEND=noninteractive
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq  install  dialog apt-utils
-        sudo -E apt-get -qq install $(cat $GITHUB_WORKSPACE/depends/${{ matrix.os }})
-        wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
-        sudo python2.7 get-pip.py
-        sudo rm -rf get-pip.py
-        sudo pip install pyelftools
+        sudo -E apt-get full-upgrade -qq -y
+        sudo -E apt-get -qq -y  install  dialog apt-utils
+        sudo -E apt-get -qq -y install $(cat $GITHUB_WORKSPACE/depends/${{ matrix.os }})
+      
         echo "------------------------------- 清理Docker镜像和软件 -------------------------------"
         docker rmi `docker images -q`
         docker image prune -a -f

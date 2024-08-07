@@ -32,13 +32,13 @@ jobs:
         REPO_BRANCH:
           # - main
           #- istoreos-22.03
-          - istoreos-22.03
+          - istoreos-22.03.6
         ARCHITECTURE:
           - rk35xx
         os:
           - ubuntu-22.04
         include:
-          - REPO_BRANCH: istoreos-22.03
+          - REPO_BRANCH: istoreos-22.03.6
             ARCHITECTURE: rk35xx
             os: ubuntu-22.04
 
